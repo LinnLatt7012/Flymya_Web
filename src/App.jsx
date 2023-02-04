@@ -2,6 +2,7 @@ import React from 'react'
 import "./App.css";
 import FeaturedPromos from './components/FeaturedPromos';
 import Navbar from './components/Navbar.js';
+import TabNav from './components/TabNav';
 import TextSection from './components/TextSection';
 
 
@@ -11,6 +12,7 @@ const App = () => {
       <Navbar/>
       <TextSection />
       <FeaturedPromos />
+      <TabNav />
     </div>
   );
 }
