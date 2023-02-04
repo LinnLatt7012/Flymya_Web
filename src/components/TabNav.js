@@ -5,6 +5,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { Container, styled } from "@mui/material";
+import Panels from "./tabPanels/Panels";
 
 const Tabs = [
   {
@@ -172,11 +173,21 @@ export default function TabNav() {
         }}
       >
         <Container>
-          <TabPanel value="1">1</TabPanel>
-          <TabPanel value="2">2</TabPanel>
-          <TabPanel value="3">3</TabPanel>
-          <TabPanel value="4">4</TabPanel>
-          <TabPanel value="5">5</TabPanel>
+          <TabPanel value="1">
+            <Panels.FlightPanel />
+          </TabPanel>
+          <TabPanel value="2">
+            <Panels.HotelsPanel />
+          </TabPanel>
+          <TabPanel value="3">
+            <Panels.BusesPanel />
+          </TabPanel>
+          <TabPanel value="4">
+            <Panels.CarsPanel />
+          </TabPanel>
+          <TabPanel value="5">
+            <Panels.BallonsPanel />
+          </TabPanel>
         </Container>
       </Box>
     </TabContext>
