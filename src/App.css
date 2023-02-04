@@ -7,6 +7,19 @@
   pointer-events: none;
 }
 
+.carouselClass {
+  padding: 10px 0;
+}
+
+.itemClass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

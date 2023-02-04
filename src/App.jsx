@@ -1,13 +1,13 @@
 import React from 'react'
 import "./App.css";
-import FeaturedPromos from './components/FeaturedPromos';
+import Navbar from './components/Navbar.js';
+
 
 
 const App = () => {
   return (
     <div>
-      <FeaturedPromos />
-        
+      <Navbar/>
     </div>
   );
 }
