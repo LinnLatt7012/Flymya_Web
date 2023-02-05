@@ -2,10 +2,38 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import MuiTab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
+import MuiTabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import { Container, styled } from "@mui/material";
+import { Badge as MuiBadge, Container, styled } from "@mui/material";
 import Panels from "./tabPanels/Panels";
+import { withStyles } from "@mui/styles";
+
+const TabList = withStyles((theme) => ({
+  flexContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+  },
+  indicator: {
+    backgroundColor: "#1FB8F1",
+    [theme.breakpoints.down("md")]: {
+      backgroundColor: "transparent",
+    },
+  },
+}))(MuiTabList);
+const Badge = withStyles((theme) => ({
+  root: {
+    textTransform: "none",
+  },
+  badge: {
+    backgroundColor: "#FDBC4F",
+    color: "white",
+    fontSize: "8px",
+    minWidth: "12px",
+    height: "15px",
+    padding: "0 4px",
+  },
+}))(MuiBadge);
 
 const Tabs = [
   {
@@ -112,6 +140,7 @@ const Tabs = [
   },
   {
     label: "Ballons",
+    badgeContent: "New!",
     svg: (
       <svg
         width="30"
@@ -137,26 +166,50 @@ export default function TabNav() {
     color: "black",
     "&.Mui-selected": { color: "#1FB8F1" },
   }));
-
+  const TabIcon = (tab) =>
+    tab.badgeContent ? (
+      <Badge color="warning" badgeContent={tab.badgeContent}>
+        <div
+          style={{
+            marginBottom: "6px",
+            marginTop: "8px",
+            pt: 4,
+            position: "relative",
+          }}
+        >
+          {tab.svg}
+        </div>
+      </Badge>
+    ) : (
+      <div
+        style={{
+          marginBottom: "6px",
+          marginTop: "8px",
+          pt: 4,
+          position: "relative",
+        }}
+      >
+        {tab.svg}
+      </div>
+    );
   return (
     <TabContext value={activeTab}>
       <Container>
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-          <TabList
-            onChange={handleChange}
-            aria-label="lab API tabs example"
-            TabIndicatorProps={{
-              style: {
-                backgroundColor: "#1FB8F1",
-              },
-            }}
-          >
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            mt: 4,
+          }}
+        >
+          <TabList onChange={handleChange} aria-label="lab API tabs example">
             {Tabs.map((tab, index) => (
               <Tab
                 key={`${tab.label}-${index}`}
                 label={tab.label}
                 sx={{ mx: 1 }}
-                icon={<div style={{ marginBottom: "6px" }}>{tab.svg}</div>}
+                icon={TabIcon(tab)}
                 value={(index + 1).toString()}
               />
             ))}
@@ -165,8 +218,8 @@ export default function TabNav() {
       </Container>
       <Box
         sx={{
-          py: 4,
-          mt: 6,
+          py: 2,
+          mt: 2,
           backgroundColor: "rgb(73, 157, 210)",
           background:
             "linear-gradient(0deg, rgba(73,157,210,1) 0%, rgba(1,174,224,1) 100%)",

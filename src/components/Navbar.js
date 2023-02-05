@@ -14,21 +14,22 @@ function Navbar() {
       <Container maxWidth="lg">
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box sx={{ height: { sm: "60px", md: "80px" } }}>
-            <img src="/Flymya Logo_logo copy.png" height={"100%"} />
+            <img alt="Logo" src="/Flymya Logo_logo copy.png" height={"100%"} />
           </Box>
           <Box>
             <Button
               variant="text"
               sx={{
-                fontSize: "20px",
+                fontSize: "18px",
                 color: "black",
                 height: "100%",
+                textTransform: "none",
               }}
             >
               Blog
             </Button>
             <IconButton sx={{ mx: { sm: 0, md: 2 } }}>
-              <img src="/Layer 5.png" height={"35px"} />
+              <img alt="Promo" src="/Layer 5.png" height={"35px"} />
             </IconButton>
             <IconButton sx={{ mx: { sm: 0, md: 2 } }}>
               <AccountCircleOutlinedIcon sx={{ fontSize: "35px" }} />

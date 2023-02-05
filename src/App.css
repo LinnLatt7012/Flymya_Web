@@ -11,6 +11,11 @@
   padding: 10px 0;
 }
 
+.MuiTooltip-arrow {
+  color: "white !important";
+  background-color: "rgba(255,255,255,100) !important",
+}
+
 .itemClass {
   display: flex;
   justify-content: center;

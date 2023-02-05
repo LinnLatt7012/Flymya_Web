@@ -12,7 +12,7 @@ export default function TextSection() {
           fontWeight: 800,
           textAlign: "center",
           color: "#1FB8F1",
-          my: 4,
+          my: 2,
         }}
       >
         Travel is Easy with Us
